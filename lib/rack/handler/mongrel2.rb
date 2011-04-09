@@ -7,11 +7,13 @@ module Rack
       class << self
         def run(app, options = {})
           options = {
-            :recv => 'tcp://127.0.0.1:9997' || ENV['RACK_MONGREL2_RECV'],
-            :send => 'tcp://127.0.0.1:9996' || ENV['RACK_MONGREL2_SEND'],
+            :recv => ENV['RACK_MONGREL2_RECV'],
+            :send => ENV['RACK_MONGREL2_SEND'],
             :uuid => ENV['RACK_MONGREL2_UUID']
           }.merge(options)
-
+          
+          raise ArgumentError.new('Must specify an :recv or set RACK_MONGREL2_RECV') if options[:recv].nil?
+          raise ArgumentError.new('Must specify an :recv or set RACK_MONGREL2_SEND') if options[:send].nil?
           raise ArgumentError.new('Must specify an :uuid or set RACK_MONGREL2_UUID') if options[:uuid].nil?
 
           conn = ::Mongrel2::Connection.new(options[:uuid], options[:recv], options[:send])
