@@ -1,4 +1,4 @@
-require 'ffi-rzmq'
+require 'rzmq'
 require 'mongrel2/request'
 require 'mongrel2/response'
 
@@ -20,14 +20,14 @@ module Mongrel2
     end
 
     def recv
-      msg = @reqs.recv_string(0)
+      msg = @reqs.recv(0)
       msg.nil? ? nil : Request.parse(msg)
     end
 
     def reply(req, body, status = 200, headers = {})
       resp = Response.new(@resp)
       resp.send_http(req, body, status, headers)
-      resp.close if req.close?
+      resp.close(req) if req.close?
     end
 
     def close
