@@ -1,4 +1,4 @@
-require 'rzmq'
+require 'zmq'
 require 'mongrel2/request'
 require 'mongrel2/response'
 
