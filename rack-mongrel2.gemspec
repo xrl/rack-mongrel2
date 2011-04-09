@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   ## If your rubyforge_project name is different, then edit it and comment out
   ## the sub! line in the Rakefile
   s.name              = 'rack-mongrel2'
-  s.version           = '0.2.2'
-  s.date              = '2010-12-31'
+  s.version           = '1.0.0'
+  s.date              = '2011-04-09'
   s.rubyforge_project = 'rack-mongrel2'
 
   ## Make sure your summary is short. The description may be as long
@@ -25,9 +25,9 @@ Gem::Specification.new do |s|
   ## List the primary authors. If there are a bunch of authors, it's probably
   ## better to set the email to an email list or something. If you don't have
   ## a custom homepage, consider using your GitHub URL or the like.
-  s.authors  = ['Daniel Huckstep']
+  s.authors  = ['Daniel Huckstep', 'Nathan Duran']
   s.email    = 'darkhelmet@darkhelmetlive.com'
-  s.homepage = 'http://github.com/darkhelmet/rack-mongrel2'
+  s.homepage = 'https://github.com/khiltd/rack-mongrel2'
 
   ## This gets added to the $LOAD_PATH so that 'lib/NAME.rb' can be required as
   ## require 'NAME.rb' or'/lib/NAME/file.rb' can be as require 'NAME/file.rb'
