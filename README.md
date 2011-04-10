@@ -10,9 +10,11 @@ The rack-mongrel2 gem was supposed to be "the only Mongrel2 Rack handler you'll 
 
 3. I fixed a really stupid longstanding crasher that's been unaddressed for months which was hindering my team's progress.
 
+4. It can actually be found by `gem which`.
+
 # Sounds Cool. Gimme.
 
-Add `http://gem.khiltd.com` to your gem sources--either via `gem source --add` or by throwing it in your Gemfile. Then just `gem install khi-rack-mongrel2` and get rid of any potentially conflicting versions you might have previously installed.
+Add `http://gem.khiltd.com` to your gem sources--either via `gem source --add` or by throwing it in your Gemfile. Then just `gem install khi-rack-mongrel2` or `bundle install` and get rid of any potentially conflicting versions you might have been using previously.
 
 # You Sound Like A Real Jerk
 

@@ -13,13 +13,13 @@ Gem::Specification.new do |s|
   ## If your rubyforge_project name is different, then edit it and comment out
   ## the sub! line in the Rakefile
   s.name              = 'khi-rack-mongrel2'
-  s.version           = '1.0.0'
+  s.version           = '1.0.1'
   s.date              = '2011-04-09'
   s.rubyforge_project = 'khi-rack-mongrel2'
 
   ## Make sure your summary is short. The description may be as long
   ## as you like.
-  s.summary     = %Q{The only Mongrel2 Rack handler you'll ever need.}
+  s.summary     = %Q{One of many Mongrel2 Rack handler you'll probably try.}
   s.description = %Q{A Rack handler for the Mongrel2 web server, by Zed Shaw. http://mongrel2.org/}
 
   ## List the primary authors. If there are a bunch of authors, it's probably
@@ -57,13 +57,12 @@ Gem::Specification.new do |s|
     LICENSE
     README.md
     Rakefile
-    example/mongrel2.conf
     example/sinatra/.gitignore
     example/sinatra/app.rb
     example/sinatra/config.ru
     example/sinatra/mongrel2.conf
     khi-rack-mongrel2.gemspec
-    lib/mongrel2.rb
+    lib/khi-rack-mongrel2.rb
     lib/mongrel2/connection.rb
     lib/mongrel2/request.rb
     lib/mongrel2/response.rb
