@@ -1,7 +1,12 @@
-#Setup your own load paths here
-$LOAD_PATH.push(File.expand_path(File.dirname(__FILE__)))
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'bundler'
+Bundler.setup(:default, :sinatra)
 
 require 'rack/handler/mongrel2'
+
+#Setup your own load paths here
+$LOAD_PATH.push(File.expand_path(File.dirname(__FILE__)))
 require 'app'
 
 #The connection specs are NOT optional, and they must 

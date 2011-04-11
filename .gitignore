@@ -22,4 +22,3 @@ pkg
 .bundle/
 *.rbc
 .rvmrc
-Gemfile.lock
