@@ -12,16 +12,25 @@ module Mongrel2
       # Connect to receive requests
       @reqs = CTX.socket(ZMQ::PULL)
       @reqs.connect(sub)
+      @reqs.setsockopt(ZMQ::LINGER, 0)
 
       # Connect to send responses
       @resp = CTX.socket(ZMQ::PUB)
       @resp.connect(pub)
       @resp.setsockopt(ZMQ::IDENTITY, uuid)
+      @resp.setsockopt(ZMQ::LINGER, 0)
     end
 
     def recv
-      msg = @reqs.recv(0)
-      msg.nil? ? nil : Request.parse(msg)
+      msg = nil
+      ready_sockets = ZMQ.select([@reqs], nil, nil, 30)
+      if !ready_sockets.nil?
+        ready_sockets[0].each do | socket |
+          msg = socket.recv(ZMQ::NOBLOCK)
+          msg = Request.parse(msg) unless msg.nil?
+        end
+      end
+      msg
     end
 
     def reply(req, body, status = 200, headers = {})
@@ -31,8 +40,9 @@ module Mongrel2
     end
 
     def close
-      # I think I should be able to just close the context
-      CTX.close rescue nil
+      @resp.close
+      @reqs.close
+      CTX.close
     end
   end
 end
