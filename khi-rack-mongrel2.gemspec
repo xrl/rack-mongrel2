@@ -58,6 +58,8 @@ Gem::Specification.new do |s|
     README.md
     Rakefile
     example/sinatra/.gitignore
+    example/sinatra/Gemfile
+    example/sinatra/Gemfile.lock
     example/sinatra/app.rb
     example/sinatra/config.ru
     example/sinatra/mongrel2.conf
