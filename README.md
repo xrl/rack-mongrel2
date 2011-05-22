@@ -6,13 +6,17 @@ The rack-mongrel2 gem was supposed to be "the only Mongrel2 Rack handler you'll 
 
 1. Reads are non-blocking.
 
-2. I don't care about any of that Ruby hippie FFI shit. I use the standard-issue hand-compiled zmq gem and I like it. If you can't build it on your OS, you probably shouldn't be serving web pages from it.
+2. Plays nice with ØMQ 2.1.x.
 
-3. I don't ever supply any default ØMQ connection specs since there is virtually NO chance that you will ever setup your Mongrel2 instance the same way I setup mine. Especially not if you're running more than one of them and can't keep recycling the same ports for every app you intend to boot. This does make the setup code look more like actual code than magic unicorn farts, so seeing it will probably drive some angry Rails teen to sperg out in a Peet's bathroom for a week while chanting "D.R.Y." and jerking off to the Kid Robot catalog he carries around in the $300 hardshell backpack his mom bought him to protect his Hario ceramic burr grinder from the mean streets of SoMa. I consider this my fork's greatest feature. 
+3. Handles SIGTERM gracefully.
 
-4. I fixed a really stupid longstanding crasher that's been unaddressed for months which was hindering my team's progress.
+4. I don't care about any of that Ruby hippie FFI shit. I use the standard-issue hand-compiled zmq gem and I like it. If you can't build it on your OS, you probably shouldn't be serving web pages from it.
 
-5. It can actually be found by `gem which`.
+5. I don't ever supply any default ØMQ connection specs since there is virtually NO chance that you will ever setup your Mongrel2 instance the same way I setup mine. Especially not if you're running more than one of them and can't keep recycling the same ports for every app you intend to boot. This does make the setup code look more like actual code than magic unicorn farts, so seeing it will probably drive some angry Rails teen to sperg out in a Peet's bathroom for a week while chanting "D.R.Y." and jerking off to the Kid Robot catalog he carries around in the $300 hardshell backpack his mom bought him to protect his Hario ceramic burr grinder from the mean streets of SoMa. I consider this my fork's greatest feature. 
+
+6. I fixed a really stupid longstanding crasher that's been unaddressed for months which was hindering my team's progress.
+
+7. It can actually be found by `gem which`.
 
 # Sounds Cool. Gimme.
 
