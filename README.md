@@ -4,11 +4,11 @@ The rack-mongrel2 gem was supposed to be "the only Mongrel2 Rack handler you'll 
 
 # What's so Great About Yours?
 
-1. Reads are non-blocking.
+1. Its reads are non-blocking.
 
-2. Plays nice with ØMQ 2.1.x.
+2. It plays nice with ØMQ 2.1.x.
 
-3. Handles SIGTERM gracefully.
+3. It handles SIGTERM gracefully.
 
 4. I don't care about any of that Ruby hippie FFI shit. I use the standard-issue hand-compiled zmq gem and I like it. If you can't build it on your OS, you probably shouldn't be serving web pages from it.
 
@@ -20,7 +20,7 @@ The rack-mongrel2 gem was supposed to be "the only Mongrel2 Rack handler you'll 
 
 # Sounds Cool. Gimme.
 
-Add `http://gem.khiltd.com` to your gem sources--either via `gem source --add` or by throwing it in your Gemfile. Then just `gem install khi-rack-mongrel2` or `bundle install` and get rid of any potentially conflicting versions you might have been using previously.
+Add `http://gem.khiltd.com` to your gem sources--either via `gem source --add` or by throwing it in your Gemfile. Then just `gem install khi-rack-mongrel2` or `bundle install` and get rid of any potentially conflicting versions you might have been using previously. No, I won't be setting up a RubyForge account anytime soon.
 
 # You Sound Like a Real Jerk
 
