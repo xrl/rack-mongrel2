@@ -58,6 +58,8 @@ module Rack
           conn.close
           exit
           return
+        ensure
+          conn.close
         end
       end #def self.run
       
