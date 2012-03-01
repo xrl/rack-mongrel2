@@ -11,7 +11,7 @@ module Rack
         raise ArgumentError.new('Must specify :recv') if options[:send].nil?
         raise ArgumentError.new('Must specify :uuid') if options[:uuid].nil?
 
-        conn = ::Mongrel2::Connection.new(options[:uuid], options[:recv], options[:send])
+        conn = ::Mongrel2::Connection.new(options)
 
         running = true
 
