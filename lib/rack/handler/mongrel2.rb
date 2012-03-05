@@ -14,10 +14,12 @@ module Rack
         conn = ::Mongrel2::Connection.new(options)
 
         running = true
+        graceful_shutdown = false
 
         %w(INT TERM KILL).each do | sig |
           Signal.trap(sig) do
             running = false
+            graceful_shutdown = (sig == 'TERM')
           end
         end
         
@@ -59,7 +61,7 @@ module Rack
           exit
           return
         ensure
-          conn.close
+          conn.close if graceful_shutdown
         end
       end #def self.run
       
