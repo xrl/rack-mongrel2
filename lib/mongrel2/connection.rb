@@ -9,18 +9,18 @@ module Mongrel2
   class Connection
     CTX = ZMQ::Context.new(1)
 
-    def initialize(uuid, sub, pub)
-      @uuid, @sub, @pub = uuid, sub, pub
+    def initialize(options)
+      @uuid, @sub, @pub, @graceful_linger = options[:uuid], options[:recv], options[:send], options[:graceful_linger]
 
       # Connect to receive requests
       @reqs = CTX.socket(ZMQ::PULL)
-      @reqs.connect(sub)
+      @reqs.connect(@sub)
       @reqs.setsockopt(ZMQ::LINGER, 0)
 
       # Connect to send responses
       @resp = CTX.socket(ZMQ::PUB)
-      @resp.connect(pub)
-      @resp.setsockopt(ZMQ::IDENTITY, uuid)
+      @resp.connect(@pub)
+      @resp.setsockopt(ZMQ::IDENTITY, @uuid)
       @resp.setsockopt(ZMQ::LINGER, 0)
     end
 
@@ -47,6 +47,8 @@ module Mongrel2
     end
 
     def close
+      @reqs.setsockopt(ZMQ::LINGER, @graceful_linger) if @graceful_linger
+      @resp.setsockopt(ZMQ::LINGER, @graceful_linger) if @graceful_linger
       @resp.close
       @reqs.close
       CTX.close

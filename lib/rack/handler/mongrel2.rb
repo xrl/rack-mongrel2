@@ -11,13 +11,15 @@ module Rack
         raise ArgumentError.new('Must specify :recv') if options[:send].nil?
         raise ArgumentError.new('Must specify :uuid') if options[:uuid].nil?
 
-        conn = ::Mongrel2::Connection.new(options[:uuid], options[:recv], options[:send])
+        conn = ::Mongrel2::Connection.new(options)
 
         running = true
+        graceful_shutdown = false
 
         %w(INT TERM KILL).each do | sig |
           Signal.trap(sig) do
             running = false
+            graceful_shutdown = (sig == 'TERM')
           end
         end
         
@@ -58,6 +60,8 @@ module Rack
           conn.close
           exit
           return
+        ensure
+          conn.close if graceful_shutdown
         end
       end #def self.run
       
