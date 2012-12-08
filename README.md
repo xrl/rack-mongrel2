@@ -1,5 +1,9 @@
 # khi-rack-mongrel2
 
+# This Project is Abandonware
+
+The company I built this for no longer exists and Zed's too busy marketing horrible eBooks to the Leah Culvers of the world to bother making Mongrel2 a viable alternative to anything anymore. As its mailing list has grown intolerable, I have no intention of updating this Gem anytime in the near future.
+
 The rack-mongrel2 gem was supposed to be "the only Mongrel2 Rack handler you'll ever need." Unfortunately, its original author hasn't done a lot of work with Mongrel2 or ØMQ, so parts of it made assumptions which just didn't work in actual production environments. He also seems to be pretty lazy about fixing obvious bugs which make the gem flat out unusable, and I've got work to do, so here's a fork.
 
 # What's so Great About Yours?
