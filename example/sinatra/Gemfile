@@ -1,0 +1,7 @@
+source :rubygems
+source 'http://gem.khiltd.com'
+
+group :sinatra do
+  gem 'sinatra'
+  gem 'khi-rack-mongrel2', '>=1.0.1'
+end

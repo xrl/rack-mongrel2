@@ -1,4 +1,4 @@
-require 'mongrel2'
+require 'khi-rack-mongrel2'
 
 module Mongrel2
   class Request

@@ -12,22 +12,22 @@ Gem::Specification.new do |s|
   ## Leave these as is they will be modified for you by the rake gemspec task.
   ## If your rubyforge_project name is different, then edit it and comment out
   ## the sub! line in the Rakefile
-  s.name              = 'rack-mongrel2'
-  s.version           = '0.2.3'
-  s.date              = '2011-04-09'
-  s.rubyforge_project = 'rack-mongrel2'
+  s.name              = 'khi-rack-mongrel2'
+  s.version           = '1.0.3'
+  s.date              = '2011-05-21'
+  s.rubyforge_project = 'khi-rack-mongrel2'
 
   ## Make sure your summary is short. The description may be as long
   ## as you like.
-  s.summary     = %Q{The only Mongrel2 Rack handler you'll ever need.}
+  s.summary     = %Q{One of many Mongrel2 Rack handler you'll probably try.}
   s.description = %Q{A Rack handler for the Mongrel2 web server, by Zed Shaw. http://mongrel2.org/}
 
   ## List the primary authors. If there are a bunch of authors, it's probably
   ## better to set the email to an email list or something. If you don't have
   ## a custom homepage, consider using your GitHub URL or the like.
-  s.authors  = ['Daniel Huckstep']
+  s.authors  = ['Daniel Huckstep', 'Nathan Duran']
   s.email    = 'darkhelmet@darkhelmetlive.com'
-  s.homepage = 'http://github.com/darkhelmet/rack-mongrel2'
+  s.homepage = 'https://github.com/khiltd/rack-mongrel2'
 
   ## This gets added to the $LOAD_PATH so that 'lib/NAME.rb' can be required as
   ## require 'NAME.rb' or'/lib/NAME/file.rb' can be as require 'NAME/file.rb'
@@ -40,8 +40,7 @@ Gem::Specification.new do |s|
 
   ## List your runtime dependencies here. Runtime dependencies are those
   ## that are needed for an end user to actually USE your code.
-  s.add_dependency('ffi', ['~> 1.0.0'])
-  s.add_dependency('ffi-rzmq', ['~> 0.7.0'])
+  s.add_dependency('zmq', ['~> 2.1.0.1'])
 
   ## List your development dependencies here. Development dependencies are
   ## those that are only needed during development
@@ -58,17 +57,18 @@ Gem::Specification.new do |s|
     LICENSE
     README.md
     Rakefile
-    example/mongrel2.conf
     example/sinatra/.gitignore
+    example/sinatra/Gemfile
+    example/sinatra/Gemfile.lock
     example/sinatra/app.rb
     example/sinatra/config.ru
     example/sinatra/mongrel2.conf
-    lib/mongrel2.rb
+    khi-rack-mongrel2.gemspec
+    lib/khi-rack-mongrel2.rb
     lib/mongrel2/connection.rb
     lib/mongrel2/request.rb
     lib/mongrel2/response.rb
     lib/rack/handler/mongrel2.rb
-    rack-mongrel2.gemspec
     spec/request_spec.rb
     spec/response_spec.rb
     spec/spec.opts
