@@ -40,13 +40,13 @@ Gem::Specification.new do |s|
 
   ## List your runtime dependencies here. Runtime dependencies are those
   ## that are needed for an end user to actually USE your code.
-  s.add_dependency('zmq', ['~> 2.1.4'])
+  s.add_dependency('ffi-rzmq', ['~> 1.0.1'])
 
   ## List your development dependencies here. Development dependencies are
   ## those that are only needed during development
   s.add_development_dependency('rspec', ['~> 2.3.0'])
-  s.add_development_dependency('fuubar', ['~> 0.0.3'])
-  s.add_development_dependency('yard', ['~> 0.6.4'])
+  # s.add_development_dependency('fuubar', ['~> 0.0.3'])
+  # s.add_development_dependency('yard', ['~> 0.6.4'])
 
   ## Leave this section as-is. It will be automatically generated from the
   ## contents of your Git repository via the gemspec task. DO NOT REMOVE

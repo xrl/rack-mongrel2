@@ -17,31 +17,28 @@ module Mongrel2
       @uuid, @sub, @pub, @graceful_linger = options[:uuid], options[:recv], options[:send], options[:graceful_linger]
 
       # Connect to receive requests
-      @reqs = CTX.socket(ZMQ::PULL)
+      @reqs = self.class.context.socket(ZMQ::PULL)
       @reqs.connect(@sub)
       @reqs.setsockopt(ZMQ::LINGER, 0)
 
       # Connect to send responses
-      @resp = CTX.socket(ZMQ::PUB)
+      @resp = self.class.context.socket(ZMQ::PUB)
       @resp.connect(@pub)
       @resp.setsockopt(ZMQ::IDENTITY, @uuid)
       @resp.setsockopt(ZMQ::LINGER, 0)
+
+      @poller = ZMQ::Poller.new
+      @poller.register(@reqs)
     end
 
     def recv
-      msg = nil
-      begin
-        ready_sockets = ZMQ.select([@reqs], nil, nil, 30)
-        if !ready_sockets.nil?
-          ready_sockets[0].each do | socket |
-            msg = socket.recv(ZMQ::NOBLOCK)
-            msg = Request.parse(msg) unless msg.nil?
-          end
+      if @poller.poll(30) > 0
+        @poller.readables.each do |socket|
+          msg = ''
+          socket.recv_string(msg)
+          return Request.parse(msg) unless msg.nil?
         end
-      rescue RuntimeError => e
-        raise ConnectionDiedError
       end
-      msg
     end
 
     def reply(req, body, status = 200, headers = {})
@@ -51,7 +48,6 @@ module Mongrel2
     end
 
     def close
-      # I think I should be able to just close the context
       self.class.context.close rescue nil
     end
   end

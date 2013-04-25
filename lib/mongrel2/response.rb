@@ -58,11 +58,11 @@ module Mongrel2
   private
 
     def send_resp(uuid, conn_id, data)
-      @resp.send('%s %d:%s, %s' % [uuid, conn_id.size, conn_id, data])
+      @resp.send_string('%s %d:%s, %s' % [uuid, conn_id.size, conn_id, data])
     end
 
     def build_http_response(body, status, headers)
-      headers['Content-Length'] = body.size.to_s
+      headers['Content-Length'] = body.bytesize
       headers = headers.map{ |k, v| '%s: %s' % [k,v] }.join("\r\n")
       "HTTP/1.1 #{status} #{StatusMessage[status.to_i]}\r\n#{headers}\r\n\r\n#{body}"
     end
