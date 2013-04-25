@@ -51,16 +51,8 @@ module Mongrel2
     end
 
     def close
-<<<<<<< HEAD
       # I think I should be able to just close the context
       self.class.context.close rescue nil
-=======
-      @reqs.setsockopt(ZMQ::LINGER, @graceful_linger) if @graceful_linger
-      @resp.setsockopt(ZMQ::LINGER, @graceful_linger) if @graceful_linger
-      @resp.close
-      @reqs.close
-      CTX.close
->>>>>>> b74e44fb8c53e24e16205974ce1fe1b77f66c43b
     end
   end
 end
