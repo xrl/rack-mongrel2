@@ -12,10 +12,10 @@ Gem::Specification.new do |s|
   ## Leave these as is they will be modified for you by the rake gemspec task.
   ## If your rubyforge_project name is different, then edit it and comment out
   ## the sub! line in the Rakefile
-  s.name              = 'khi-rack-mongrel2'
+  s.name              = 'rack-mongrel2'
   s.version           = '1.0.3'
   s.date              = '2011-05-21'
-  s.rubyforge_project = 'khi-rack-mongrel2'
+  s.rubyforge_project = 'rack-mongrel2'
 
   ## Make sure your summary is short. The description may be as long
   ## as you like.
@@ -63,8 +63,8 @@ Gem::Specification.new do |s|
     example/sinatra/app.rb
     example/sinatra/config.ru
     example/sinatra/mongrel2.conf
-    khi-rack-mongrel2.gemspec
-    lib/khi-rack-mongrel2.rb
+    rack-mongrel2.gemspec
+    lib/rack-mongrel2.rb
     lib/mongrel2/connection.rb
     lib/mongrel2/request.rb
     lib/mongrel2/response.rb
